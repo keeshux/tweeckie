@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+.tck-game {
+    position: relative;
+    margin: 0 auto;
+}
+
+.tck-game:after {
+    content: '.';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}   
+
+.tck-area {
+    position: relative;
+    font-size: 1em;
+}
+
+.tck-area.tck-local {
+    text-align: right;
+    margin-top: 0.5em;
+}
+
+.tck-area.tck-remote {
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+

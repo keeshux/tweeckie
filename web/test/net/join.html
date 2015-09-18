@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>tweeckie - invited test</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="/tweeckie/core/tweeckie.css.php" />
+    </head>
+    <body>
+        <button id="destroy">Destroy</button>
+        <div id="game"></div>
+
+        <!-- libraries -->
+        <script type="text/javascript" src="/cdn/jquery.min.js"></script>
+        <script type="text/javascript" src="/cdn/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/cdn/json2.js"></script>
+        <!-- libraries -->
+
+        <script type="text/javascript" src="/tweeckie/core/tweeckie.js.php"></script>
+        <script type="text/javascript">
+        <!--
+$(function() {
+    var gameName = 'chess';
+    $('#game').hide();
+
+    // core settings
+    tck.settings.nickname = 'invited';
+    tck.settings.debug = true;
+    tck.settings.mq.debug = true;
+    tck.settings.games.cssFile = 'style.css.php';
+    tck.settings.games.jsFile = 'engine.js.php';
+    //tck.settings.games.jsFile = 'engine.min.js';
+
+    // core callbacks
+    tck.callbacks.onGameLoad = function(module) {
+        console.log('loaded game module:', module, '(', module.name, ')');
+
+        // join session
+        var channel = prompt('Channel?');
+        if (channel) {
+            tck.api.join(channel);
+        }
+    };
+    tck.callbacks.onAccept = function(me, opponent, cfg) {
+        console.log(me, 'vs', opponent, ' ', cfg);
+        $('#game .tck-form').hide();
+        $('#game').show();
+    };
+    tck.callbacks.onQuit = function(opponent) {
+        console.log(opponent, 'quit');
+        tck.api.unloadGame(gameName);
+    };
+    tck.callbacks.onDisconnect = function() {
+        console.log('onDisconnect');
+    };
+
+    // load game module
+    tck.api.loadGame(gameName, '#game');
+
+    // handlers
+    $('#destroy').click(function() {
+        tck.api.quit();
+        tck.api.unloadGame(gameName);
+    });
+});
+        //-->
+        </script>
+    </body>
+</html>
+

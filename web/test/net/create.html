@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>tweeckie - creator test</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="/tweeckie/core/tweeckie.css.php" />
+        <script type="text/css">
+.tck-form {
+    margin: 0;
+    padding: 0;
+}
+        </script>
+    </head>
+    <body>
+        <div class="buttons">
+            <button id="create" class="tck-button-create">Create</button> (channel = <span id="channel">?</span>)<br />
+            <button id="destroy">Destroy</button>
+        </div>
+        <div id="game"></div>
+
+        <!-- libraries -->
+        <script type="text/javascript" src="/cdn/jquery.min.js"></script>
+        <script type="text/javascript" src="/cdn/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/cdn/json2.js"></script>
+        <!-- libraries -->
+
+        <script type="text/javascript" src="/tweeckie/core/tweeckie.js.php"></script>
+        <script type="text/javascript">
+        <!--
+$(function() {
+    var gameName = 'chess';
+    $('#game').hide();
+
+    // core settings
+    tck.settings.nickname = 'creator';
+    tck.settings.debug = true;
+    tck.settings.mq.debug = true;
+    tck.settings.channelLen = 4;
+    tck.settings.disconnectOnQuit = true;
+    tck.settings.games.cssFile = 'style.css.php';
+    tck.settings.games.jsFile = 'engine.js.php';
+    //tck.settings.games.jsFile = 'engine.min.js';
+
+    // core callbacks
+    tck.callbacks.onGameLoad = function(module) {
+        console.log('loaded game module:', module, '(', module.name, ')');
+
+        $('#game .tck-game').hide();
+        $('#game .tck-form').css({
+            'margin': 0,
+            'padding': 0
+        });
+        $('#game').show();
+    };
+    tck.callbacks.onCreate = function(channel, cfg) {
+        console.log('opened game channel: ', channel);
+        $('#channel').text(channel);
+    };
+    tck.callbacks.onAccept = function(me, opponent, cfg) {
+        console.log(me, 'vs', opponent, ' ', cfg);
+        $('#game .tck-game').show();
+    };
+    tck.callbacks.onQuit = function(opponent) {
+        console.log(opponent, 'quit');
+        tck.api.unloadGame(gameName);
+    };
+    tck.callbacks.onDisconnect = function() {
+        console.log('onDisconnect');
+    };
+
+    // load game module
+    tck.api.loadGame(gameName, '#game');
+
+    // handlers
+    $('#destroy').click(function() {
+        tck.api.quit();
+        tck.api.unloadGame(gameName);
+    });
+});
+        //-->
+        </script>
+    </body>
+</html>
+

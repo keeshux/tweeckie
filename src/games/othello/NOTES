@@ -1,0 +1,10 @@
+GAME
+
+CODE
+
+    CSS styles in:
+        bootstrap.js
+        board.js
+        piece.js
+        gui.js
+        othello/player.js

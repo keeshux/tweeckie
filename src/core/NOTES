@@ -1,0 +1,27 @@
+API
+
+tck-button-create only searches FIRST .tck-form element
+
+BROWSERS
+
+WARNING: $.ajax call in subscriber MUST include {'ifModified': true}
+         and {'cache': false} (jQuery messes up with headers)!!!
+
+SECURITY
+
+creator: queue id is known but refuses messages with a different suffix
+         from first connected client, that is very hard to guess
+
+opponent: queue id includes a random suffix and only creator knows it
+
+RESERVED
+
+developers must not use these names for their CSS id/classes
+as they have special meanings:
+
+tck-form-*
+tck-game-*
+tck-button-create
+tck-local-nickname
+tck-remote-nickname
+

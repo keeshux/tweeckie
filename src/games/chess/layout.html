@@ -1,0 +1,37 @@
+<div id="tck-form-chess" class="tck-form">
+    <p><label>
+        Own color
+        <select class="tck-option-colour">
+            <option value="0" selected="selected">White</option>
+            <option value="1">Black</option>
+        </select>
+    </label></p>
+    <!-- FIXME: broken -->
+    <!-- p><label>
+        Time limit (0 = no limit)
+        <input class="tck-option-limit" type="text" value="15" />
+    </label></p -->
+</div>
+<div id="tck-game-chess" class="tck-game">
+    <div class="tck-extra">
+        <div class="tck-remote">
+            <ul class="tck-captured"></ul>
+        </div>
+        <p class="tck-history"></p>
+        <div class="tck-local">
+            <ul class="tck-captured"></ul>
+        </div>
+    </div>
+    <div class="tck-board">
+        <ul class="tck-promotion tck-overlay"></ul>
+        <div class="tck-area tck-remote">
+            <strong class="tck-remote-nickname">-</strong> (<span class="tck-colour">-</span>) -
+            <span class="tck-time">-</span>
+        </div>
+        <div class="tck-board-content"></div>
+        <div class="tck-area tck-local">
+            <strong class="tck-local-nickname">-</strong> (<span class="tck-colour">-</span>) -
+            <span class="tck-time">-</span>
+        </div>
+    </div>
+</div>
