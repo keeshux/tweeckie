@@ -19,9 +19,7 @@ Web tests are kind of raw and can be found under the `test` directory:
 * `games/*/game.php` - Play game in single mode
 * `net/create.html`, `net/join.html` - Play game (chess) with p2p handshake
 
-## Settings
-
-WARNING: settings can only be altered BEFORE a connection has been established.
+## API
 
 ### tck.api
 
@@ -43,6 +41,10 @@ WARNING: settings can only be altered BEFORE a connection has been established.
 |sendRaw                 |boolean sent (map json)                    |
 |sendRawTo               |boolean sent (string recipient, map json)  |
 |quit                    |()                                         |
+
+## Settings and callbacks
+
+WARNING: settings can only be altered BEFORE a connection has been established.
 
 ### tck.settings
 
