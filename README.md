@@ -1,12 +1,29 @@
-# Example
+# tweeckie
 
-See framework in action:
+tweeckie is a JavaScript framework made to develop 1vs1 games on top of the [nginx HTTP Push Module](https://github.com/slact/nginx_http_push_module). It currently comes with three games: Chess, Checkers (Draughts) and Othello (Reversi).
 
-http://tweeckie.com
+See the framework in action:
+
+[http://tweeckie.com](http://tweeckie.com)
 
 # Client development
 
-## tck.api
+## Tests
+
+First of all, add a website (e.g. `http://example.com`) to nginx pointing to the `web` directory. PHP support and HTTP Push Module are a requirement.
+
+Web tests are kind of raw and can be found under the `test` directory:
+
+* `core/board.html` - Show standard square board
+* `games/*/sprites.html` - Show all game sprites
+* `games/*/game.php` - Play game in single mode
+* `net/create.html`, `net/join.html` - Play game (chess) with p2p handshake
+
+## Settings
+
+WARNING: settings can only be altered BEFORE a connection has been established.
+
+### tck.api
 
 |METHOD                  |RETURN (PARAMETERS)                        |
 |------------------------|-------------------------------------------|
@@ -27,7 +44,7 @@ http://tweeckie.com
 |sendRawTo               |boolean sent (string recipient, map json)  |
 |quit                    |()                                         |
 
-## tck.settings
+### tck.settings
 
 |KEY                     |DEFAULT         |
 |------------------------|----------------|
@@ -48,7 +65,7 @@ http://tweeckie.com
 |mq.pollRetry            |3000            |
 |syncInterval            |30000           |
 
-## tck.callbacks
+### tck.callbacks
 
 |METHOD                  |(PARAMETERS)                         |
 |------------------------|-------------------------------------|
@@ -61,9 +78,6 @@ http://tweeckie.com
 |onQuit                  |(string opponent)                    |
 |onDisconnect            |(boolean wasConnected)               |
 |onRawMessage            |(map json)                           |
-
-WARNING: settings can only be altered BEFORE a connection
-has been established.
 
 # Module development
 
@@ -79,17 +93,14 @@ Import your game module this way:
         GameModule.registerModule(module);
     }
 
-The module name must match its directory and the 'game' field
-in the configuration map passed to method tck.api.create
+The module name must match its directory and the 'game' field in the configuration map passed to method tck.api.create
 
 These CSS selectors are autofilled upon players connection:
 
     .tck-local-nickname         own nickname
     .tck-remote-nickname        opponent nickname
 
-Every field enclosed (at any level) in the following variables
-must be quoted because it will be publicly visible and must therefore
-retain its name after closure advanced optimizations:
+Every field enclosed (at any level) in the following variables must be quoted because it will be publicly visible and must therefore retain its name after closure advanced optimizations:
 
     tck (public namespace)
     cfg (received in Game subclasses constructor)
