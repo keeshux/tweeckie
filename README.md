@@ -22,7 +22,42 @@ The compilation result is stored into the `dist` directory. If you have [closure
 
 # Demo
 
-First of all, add a website (e.g. `http://example.com`) to nginx pointing to the `web` directory. PHP support and HTTP Push Module are a requirement.
+First of all, add a website to nginx pointing to the `web` directory. HTTP Push Module and PHP support are a requirement. Example:
+
+    server {
+        listen       80;
+        server_name  tweeckie-example.com;
+        root         /path/to/tweeckie/web;
+        
+        ...
+        
+        # HTTP Push Module
+        location /mq/send {
+            access_log off;
+            push_publisher;
+            set $push_channel_id $arg_id;
+            push_store_messages on;
+            #push_channel_timeout 30m;
+            push_message_timeout 5m;
+            push_max_message_buffer_length 10;
+        }
+        location /mq/recv {
+            access_log off;
+            push_subscriber;
+            set $push_channel_id $arg_id;
+            #push_authorized_channels_only on;
+            push_subscriber_concurrency broadcast;
+            push_subscriber_timeout 1m;
+            push_max_channel_subscribers 10;
+            default_type application/json;
+        }
+    
+        # PHP
+        location ~ \.php$ {
+            include fastcgi.conf;
+            fastcgi_pass unix:/usr/local/var/run/php-fpm.socket;
+        }
+    }
 
 Web demos are kind of raw and can be found under the `demo` directory:
 
@@ -107,7 +142,7 @@ Import your game module this way:
         GameModule.registerModule(module);
     }
 
-The module name must match its directory and the 'game' field in the configuration map passed to method tck.api.create
+The module name must match its directory and the `game` field in the configuration map passed to method `tck.api.create`
 
 These CSS selectors are autofilled upon players connection:
 
@@ -118,4 +153,3 @@ Every field enclosed (at any level) in the following variables must be quoted be
 
     tck (public namespace)
     cfg (received in Game subclasses constructor)
-
