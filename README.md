@@ -6,22 +6,38 @@ See the framework in action:
 
 [http://tweeckie.com](http://tweeckie.com)
 
-# Client development
+# Compilation
 
-## Tests
+Compile `core` with the following script:
+
+    script/compile-core.sh
+
+Compile each game in `games` with the following script:
+
+    script/compile-game.sh chess
+
+where `chess` is just an example.
+
+The compilation result is stored into the `dist` directory. If you have [closure-compiler](https://developers.google.com/closure/compiler/) installed, append a `min` parameter to any of the two scripts above to generate minified JavaScript.
+
+# Demo
 
 First of all, add a website (e.g. `http://example.com`) to nginx pointing to the `web` directory. PHP support and HTTP Push Module are a requirement.
 
-Web tests are kind of raw and can be found under the `test` directory:
+Web demos are kind of raw and can be found under the `demo` directory:
 
 * `core/board.html` - Show standard square board
 * `games/*/sprites.html` - Show all game sprites
 * `games/*/game.php` - Play game in single mode
 * `net/create.html`, `net/join.html` - Play game (chess) with p2p handshake
 
-## API
+# Client development
 
-### tck.api
+The `tck` object is exported by `core/tweeckie.js`.
+
+WARNING: settings and callbacks can only be altered BEFORE a connection has been established.
+
+## `tck.api`
 
 |METHOD                  |RETURN (PARAMETERS)                        |
 |------------------------|-------------------------------------------|
@@ -42,11 +58,7 @@ Web tests are kind of raw and can be found under the `test` directory:
 |sendRawTo               |boolean sent (string recipient, map json)  |
 |quit                    |()                                         |
 
-## Settings and callbacks
-
-WARNING: settings can only be altered BEFORE a connection has been established.
-
-### tck.settings
+## `tck.settings`
 
 |KEY                     |DEFAULT         |
 |------------------------|----------------|
@@ -67,7 +79,7 @@ WARNING: settings can only be altered BEFORE a connection has been established.
 |mq.pollRetry            |3000            |
 |syncInterval            |30000           |
 
-### tck.callbacks
+## `tck.callbacks`
 
 |METHOD                  |(PARAMETERS)                         |
 |------------------------|-------------------------------------|
