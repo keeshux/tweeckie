@@ -10,11 +10,11 @@ See the framework in action:
 
 Compile `core` with the following script:
 
-    script/compile-core.sh
+    scripts/compile-core.sh
 
 Compile each game in `games` with the following script:
 
-    script/compile-game.sh chess
+    scripts/compile-game.sh chess
 
 where `chess` is just an example.
 
