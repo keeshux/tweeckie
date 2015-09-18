@@ -61,10 +61,10 @@ First of all, add a website to nginx pointing to the `web` directory. HTTP Push 
 
 Web demos are kind of raw and can be found under the `demo` directory:
 
-* `core/board.html` - Show standard square board
-* `games/*/sprites.html` - Show all game sprites
-* `games/*/game.php` - Play game in single mode
-* `net/create.html`, `net/join.html` - Play game (chess) with p2p handshake
+* [core/board.html](web/demo/core/board.html) - Show standard square board
+* [games/*/sprites.html](web/demo/games/chess/sprites.html) - Show all game sprites
+* [games/*/game.php](web/demo/games/chess/game.php) - Play game in single mode
+* [net/create.html](web/demo/net/create.html), [net/join.html](web/demo/net/join.html) - Play game (chess) with p2p handshake
 
 # Client development
 
