@@ -1,6 +1,6 @@
 # tweeckie
 
-tweeckie is a JavaScript framework made to develop 1vs1 games on top of the [nginx HTTP Push Module](https://github.com/slact/nginx_http_push_module). It currently comes with three games: Chess, Checkers (Draughts) and Othello (Reversi).
+tweeckie is a JavaScript framework made to develop 1-on-1 games on top of the [nginx HTTP Push Module](https://github.com/slact/nginx_http_push_module). It currently comes with three games: Chess, Checkers (Draughts) and Othello (Reversi).
 
 See the framework in action:
 
