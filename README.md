@@ -8,7 +8,7 @@ See the framework in action:
 
 # Compilation
 
-Compile `core` with the following script:
+You will need [SASS](http://sass-lang.com/install) installed for CSS compilation. Compile `core` with the following script:
 
     scripts/compile-core.sh
 
@@ -22,7 +22,7 @@ The compilation result is stored into the `dist` directory. If you have [closure
 
 # Demo
 
-First of all, add a website to nginx pointing to the `web` directory. HTTP Push Module and PHP support are a requirement. Example:
+First of all, add a website to nginx pointing to the `web` directory. HTTP Push Module is a requirement. Example:
 
     server {
         listen       80;
@@ -51,19 +51,13 @@ First of all, add a website to nginx pointing to the `web` directory. HTTP Push 
             push_max_channel_subscribers 10;
             default_type application/json;
         }
-    
-        # PHP
-        location ~ \.php$ {
-            include fastcgi.conf;
-            fastcgi_pass unix:/usr/local/var/run/php-fpm.socket;
-        }
     }
 
 Web demos are kind of raw and can be found under the `demo` directory:
 
 * [core/board.html](web/demo/core/board.html) - Show standard square board
 * [games/*/sprites.html](web/demo/games/chess/sprites.html) - Show all game sprites
-* [games/*/game.php](web/demo/games/chess/game.php) - Play game in single mode
+* [games/*/game.php](web/demo/games/chess/game.php) - Play game in single mode (requires PHP)
 * [net/create.html](web/demo/net/create.html), [net/join.html](web/demo/net/join.html) - Play game with p2p handshake
 
 # Client development
