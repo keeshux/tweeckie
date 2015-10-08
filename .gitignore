@@ -1,5 +1,6 @@
 .DS_Store
 *.swp
+.sass*
 log
 closure-out
 dist

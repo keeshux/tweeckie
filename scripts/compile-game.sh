@@ -1,20 +1,21 @@
 #!/bin/bash
 PWD=`pwd`
+GAME=$1
 CLOSURE=closure-compiler
 CLOSURE_OUT=closure-out
-SRC=src/games/$1
+SRC=src/games/$GAME
 CORE_EXTERNS=src/core/externs
-DIST=dist/games/$1
+DIST=dist/games/$GAME
 CSS=style.css
 JS=engine.js
 
-if [ -z $1 ]; then
+if [ -z $GAME ]; then
     echo 'Pass game module as first parameter'
     exit
 fi
 
 if [ ! -d $SRC ]; then
-    echo 'Game module '\'''$1''\'' does not exist'
+    echo 'Game module '\'''$GAME''\'' does not exist'
     exit
 fi
 
@@ -28,7 +29,7 @@ CSS_PATH=$PWD/$DIST/$CSS
 JS_PATH=$PWD/$DIST/$JS
 cat $SRC/HEADER >$DIST/$CSS
 cat $SRC/HEADER >$DIST/$JS
-( cd $SRC && php $CSS.php >>$CSS_PATH )
+( cd $SRC && sass style.scss >>$CSS_PATH )
 ( cd $SRC && ./assemble-js.sh >>$JS_PATH )
 
 # clone external data

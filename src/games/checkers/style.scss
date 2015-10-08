@@ -1,11 +1,8 @@
-<?php
-header('Content-Type: text/css');
-
 // independent
-$piece = 50;
-$piece_sm = 20;
-$logo = 50;
-?>
+$piece: 50;
+$piece_sm: 20;
+$logo: 50;
+
 /* [GAME]: checkers */
 
 #tck-game-checkers .tck-extra {
@@ -23,8 +20,8 @@ $logo = 50;
 
 #tck-game-checkers .tck-board-body div {
     position: absolute;
-    width: <?php echo $piece ?>px; /* piece */
-    height: <?php echo $piece ?>px; /* piece */
+    width: #{$piece}px;
+    height: #{$piece}px;
 }
 
 #tck-game-checkers .tck-piece {
@@ -48,15 +45,15 @@ $logo = 50;
 
 #tck-game-checkers .tck-piece {
     background-image: url('/tweeckie/games/checkers/media/sprites.png');
-    width: <?php echo $piece ?>px; /* piece */
-    height: <?php echo $piece ?>px; /* piece */
+    width: #{$piece}px;
+    height: #{$piece}px;
 }
 
 .tck-checkers-logo {
     background-image: url('/tweeckie/games/checkers/media/sprites.png');
-    background-position: 0px -<?php echo $piece ?>px;
-    width: <?php echo $logo ?>px; /* logo */
-    height: <?php echo $logo ?>px; /* logo */
+    background-position: 0px -#{$piece}px;
+    width: #{$logo}px;
+    height: #{$logo}px;
 }
 
 /* regular pieces */
@@ -66,14 +63,14 @@ $logo = 50;
 }
 
 #tck-game-checkers .tck-white-king {
-    background-position: -<?php echo $piece ?>px 0px;
+    background-position: -#{$piece}px 0px;
 }
 
 #tck-game-checkers .tck-black-man {
-    background-position: -<?php echo 2 * $piece ?>px 0px;
+    background-position: -#{2 * $piece}px 0px;
 }
 
 #tck-game-checkers .tck-black-king {
-    background-position: -<?php echo 3 * $piece ?>px 0px;
+    background-position: -#{3 * $piece}px 0px;
 }
 

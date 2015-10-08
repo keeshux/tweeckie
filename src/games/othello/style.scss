@@ -1,14 +1,11 @@
-<?php
-header('Content-Type: text/css');
-
 // independent
-$piece = 50;
-$logo = 50;
-$cell_bw = 1;
+$piece: 50;
+$logo: 50;
+$cell_bw: 1;
 
 // dependent
-$highlight = $piece - 2 * $cell_bw;
-?>
+$highlight: $piece - 2 * $cell_bw;
+
 /* [GAME]: othello */
 
 #tck-game-othello .tck-extra {
@@ -29,22 +26,22 @@ $highlight = $piece - 2 * $cell_bw;
 
 #tck-game-othello .tck-piece {
     cursor: auto;
-    width: <?php echo $piece ?>px; /* piece */
-    height: <?php echo $piece ?>px; /* piece */
+    width: #{$piece}px;
+    height: #{$piece}px;
     z-index: 5;
 }
 
 #tck-game-othello .tck-reachable {
     cursor: pointer;
-    width: <?php echo $piece ?>px; /* piece */
-    height: <?php echo $piece ?>px; /* piece */
+    width: #{$piece}px;
+    height: #{$piece}px;
 }
 
 #tck-game-othello .tck-highlight {
     background-color: #F90;
-    margin: <?php echo $cell_bw ?>px; /* cell_bw */
-    width: <?php echo $highlight ?>px; /* highlight */
-    height: <?php echo $highlight ?>px; /* highlight */
+    margin: #{$cell_bw}px;
+    width: #{$highlight}px;
+    height: #{$highlight}px;
     filter: alpha(opacity=60);
     -moz-opacity: 0.6;
     -khtml-opacity: 0.6;
@@ -56,15 +53,15 @@ $highlight = $piece - 2 * $cell_bw;
 
 #tck-game-othello .tck-piece {
     background-image: url('/tweeckie/games/othello/media/sprites.png');
-    width: <?php echo $piece ?>px; /* piece */
-    height: <?php echo $piece ?>px; /* piece */
+    width: #{$piece}px;
+    height: #{$piece}px;
 }
 
 .tck-othello-logo {
     background-image: url('/tweeckie/games/othello/media/sprites.png');
-    background-position: 0px -<?php echo $piece ?>px;
-    width: <?php echo $logo ?>px; /* logo */
-    height: <?php echo $logo ?>px; /* logo */
+    background-position: 0px -#{$piece}px;
+    width: #{$logo}px;
+    height: #{$logo}px;
 }
 
 /* regular pieces */
@@ -74,6 +71,6 @@ $highlight = $piece - 2 * $cell_bw;
 }
 
 #tck-game-othello .tck-black-piece {
-    background-position: -<?php echo $piece ?>px 0px;
+    background-position: -#{$piece}px 0px;
 }
 
