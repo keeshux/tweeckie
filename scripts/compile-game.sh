@@ -29,7 +29,7 @@ JS_PATH=$PWD/$DIST/$JS
 cat $SRC/HEADER >$DIST/$CSS
 cat $SRC/HEADER >$DIST/$JS
 ( cd $SRC && php $CSS.php >>$CSS_PATH )
-( cd $SRC && php $JS.php >>$JS_PATH )
+( cd $SRC && ./assemble-js.sh >>$JS_PATH )
 
 # clone external data
 cp -frp $SRC/lib $DIST/lib

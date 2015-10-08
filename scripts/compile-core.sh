@@ -19,7 +19,7 @@ cat $SRC/HEADER >$DIST/$JS
 CSS_PATH=$PWD/$DIST/$CSS
 JS_PATH=$PWD/$DIST/$JS
 ( cd $SRC && php $CSS.php >>$CSS_PATH )
-( cd $SRC && php $JS.php >>$JS_PATH )
+( cd $SRC && ./assemble-js.sh >>$JS_PATH )
 
 # closure (optional)
 if [[ $1 == 'min' ]]; then
