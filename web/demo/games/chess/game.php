@@ -9,8 +9,8 @@ $limit = isset($_GET['limit']) ? $_GET['limit'] : 0;
         <title>tweeckie - chess</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="/tweeckie/core/tweeckie.css.php" />
-        <link rel="stylesheet" type="text/css" href="/tweeckie/games/chess/style.css.php" />
+        <link rel="stylesheet" type="text/css" href="/tweeckie/core/tweeckie.css" />
+        <link rel="stylesheet" type="text/css" href="/tweeckie/games/chess/style.css" />
     </head>
     <body>
 <?php readfile('../../../tweeckie/games/chess/layout.html') ?>
@@ -20,8 +20,8 @@ $limit = isset($_GET['limit']) ? $_GET['limit'] : 0;
         <script type="text/javascript" src="/cdn/jquery-ui.min.js"></script>
         <!-- libraries -->
 
-        <script type="text/javascript" src="/tweeckie/core/tweeckie.js.php"></script>
-        <script type="text/javascript" src="/tweeckie/games/chess/engine.js.php"></script>
+        <script type="text/javascript" src="/tweeckie/core/tweeckie.js"></script>
+        <script type="text/javascript" src="/tweeckie/games/chess/engine.js"></script>
         <script type="text/javascript">
         <!--
 $(function() {
