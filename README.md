@@ -4,7 +4,7 @@ tweeckie is a JavaScript framework made to develop 1-on-1 games on top of the [n
 
 See the framework in action:
 
-[http://tweeckie.com](http://tweeckie.com)
+[http://tweeckie.algoritmico.com](http://tweeckie.algoritmico.com)
 
 # Compilation
 
